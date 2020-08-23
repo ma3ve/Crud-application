@@ -23,11 +23,6 @@ class Navbar extends Component {
                     >
                         <Link to="/disliked">disliked</Link>
                     </Menu.Item>
-                    <Menu.Menu position="right">
-                        <Menu.Item>
-                            <Input icon="search" placeholder="Search..." />
-                        </Menu.Item>
-                    </Menu.Menu>
                 </Menu>
             </div>
         );
