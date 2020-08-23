@@ -2,27 +2,21 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import changepage from "../redux/others/actions";
 import { get_posts } from "../redux/posts/actions";
-import axios from "axios";
 import PostCard from "../components/PostCard";
-
+import { Button } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 export class Home extends Component {
-    componentDidMount = async () => {
+    componentDidMount() {
         this.props.changeNavPage(this.props.location.pathname);
-        try {
-            const res = await axios({
-                method: "get",
-                url: "http://jsonplaceholder.typicode.com/posts",
-            });
-            console.log(res.data);
-            this.props.getPosts(res.data);
-        } catch (error) {
-            console.log(error);
-        }
-    };
+    }
+
     render() {
         const { posts } = this.props.posts;
         return (
             <div>
+                <Button fluid>
+                    <Link to="/posts/create">create a new one?</Link>
+                </Button>
                 {posts.map((post, array_id) => {
                     return (
                         <div key={array_id}>

@@ -7,7 +7,6 @@ import { add_disliked } from "../redux/disliked/actions";
 import { Link } from "react-router-dom";
 export class PostCard extends Component {
     render() {
-        // console.log(this.props.like)
         return (
             <div className="row justify-content-center">
                 <div className="col-md-6 mt-4">
@@ -62,8 +61,8 @@ export class PostCard extends Component {
                             </div>
                         </Card.Content>
                         <Button>
-                            <Link to={`/posts/${this.props.array_id}`}>
-                                Preview
+                            <Link to={`/posts/${this.props.array_id}/update`}>
+                                update
                             </Link>
                         </Button>
                     </Card>

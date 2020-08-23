@@ -1,4 +1,4 @@
-import { GET_POSTS, ADD_POST, REMOVE_POST } from "./types";
+import { GET_POSTS, ADD_POST, REMOVE_POST, UPDATE_POST } from "./types";
 
 const initialState = {
     posts: [],
@@ -12,7 +12,7 @@ export const reducer = (state = initialState, action) => {
                 posts: action.posts,
             };
         case ADD_POST:
-            temp_posts = [...state.posts, action.new_post];
+            temp_posts = [action.new_post, ...state.posts];
 
             return {
                 posts: [...temp_posts],
@@ -24,7 +24,10 @@ export const reducer = (state = initialState, action) => {
             return {
                 posts: [...temp_posts],
             };
-
+        case UPDATE_POST:
+            state.posts[action.array_id].title = action.updated_post.title;
+            state.posts[action.array_id].body = action.updated_post.body;
+            return state;
         default:
             return state;
     }
