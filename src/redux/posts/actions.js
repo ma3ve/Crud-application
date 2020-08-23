@@ -1,4 +1,10 @@
-import { GET_POSTS, ADD_POST, REMOVE_POST } from "./types";
+import {
+    GET_POSTS,
+    ADD_POST,
+    REMOVE_POST,
+    LIKE_POST,
+    DISLIKE_POST,
+} from "./types";
 
 export const get_posts = (posts) => {
     return {
@@ -18,5 +24,19 @@ export const remove_post = (delete_id) => {
     return {
         type: REMOVE_POST,
         delete_id,
+    };
+};
+
+export const like_post = (array_id) => {
+    return {
+        type: LIKE_POST,
+        array_id,
+    };
+};
+
+export const dislike_post = (array_id) => {
+    return {
+        type: DISLIKE_POST,
+        array_id,
     };
 };
