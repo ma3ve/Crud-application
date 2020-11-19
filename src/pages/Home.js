@@ -4,7 +4,6 @@ import changepage from "../redux/others/actions";
 import { get_posts } from "../redux/posts/actions";
 import PostCard from "../components/PostCard";
 import { Button } from "semantic-ui-react";
-import { Link } from "react-router-dom";
 export class Home extends Component {
     componentDidMount() {
         this.props.changeNavPage(this.props.location.pathname);
@@ -14,8 +13,13 @@ export class Home extends Component {
         const { posts } = this.props.posts;
         return (
             <div>
-                <Button fluid>
-                    <Link to="/posts/create">create a new one?</Link>
+                <Button
+                    fluid
+                    onClick={() => {
+                        this.props.history.push("/posts/create");
+                    }}
+                >
+                    create a new one?
                 </Button>
                 {posts.map((post, array_id) => {
                     return (
@@ -24,6 +28,7 @@ export class Home extends Component {
                                 title={post.title}
                                 body={post.body}
                                 array_id={array_id}
+                                history={this.props.history}
                             />
                         </div>
                     );

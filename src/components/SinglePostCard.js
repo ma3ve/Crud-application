@@ -4,7 +4,6 @@ import { remove_post } from "../redux/posts/actions";
 import { connect } from "react-redux";
 import { add_liked } from "../redux/liked/actions";
 import { add_disliked } from "../redux/disliked/actions";
-import { Link } from "react-router-dom";
 export class PostCard extends Component {
     render() {
         return (
@@ -60,10 +59,14 @@ export class PostCard extends Component {
                                 </Button>
                             </div>
                         </Card.Content>
-                        <Button>
-                            <Link to={`/posts/${this.props.array_id}/update`}>
-                                update
-                            </Link>
+                        <Button
+                            onClick={() => {
+                                this.props.history.push(
+                                    `/posts/${this.props.array_id}/update`
+                                );
+                            }}
+                        >
+                            update
                         </Button>
                     </Card>
                 </div>
@@ -74,6 +77,7 @@ export class PostCard extends Component {
 const mapStatetoProps = (state, props) => {
     return {
         posts: state.posts,
+        liked: state.liked,
     };
 };
 const mapDispatchtoProps = (dispatch) => {

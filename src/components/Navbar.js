@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Input, Menu } from "semantic-ui-react";
+import { Menu } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -14,7 +14,10 @@ class Navbar extends Component {
                     <Menu.Item name="home" active={activeItem === "/"}>
                         <Link to="/">Home</Link>
                     </Menu.Item>
-                    <Menu.Item name="liked" active={activeItem === "/liked"}>
+                    <Menu.Item
+                        name="liked"
+                        active={activeItem === "/liked"}
+                    >
                         <Link to="/liked">liked</Link>
                     </Menu.Item>
                     <Menu.Item

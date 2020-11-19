@@ -7,9 +7,14 @@ export class Post extends Component {
         return (
             <div>
                 <SinglePostCard
-                    title={this.props.posts[this.props.match.params.id].title}
-                    body={this.props.posts[this.props.match.params.id].body}
+                    title={
+                        this.props.posts[this.props.match.params.id].title
+                    }
+                    body={
+                        this.props.posts[this.props.match.params.id].body
+                    }
                     array_id={this.props.match.params.id}
+                    history={this.props.history}
                 />
             </div>
         );

@@ -16,6 +16,7 @@ export class Create extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.add_post(this.state);
+        this.props.history.push("/");
     };
 
     render() {
@@ -41,7 +42,9 @@ export class Create extends Component {
                         value={this.state.body}
                         name="body"
                         onChange={(e) => {
-                            this.setState({ [e.target.name]: e.target.value });
+                            this.setState({
+                                [e.target.name]: e.target.value,
+                            });
                         }}
                     />
 

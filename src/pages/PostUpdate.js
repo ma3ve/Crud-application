@@ -16,6 +16,7 @@ export class PostUpdate extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.update_post(this.state, this.props.match.params.id);
+        this.props.history.push(`/posts/${this.props.match.params.id}`);
     };
 
     render() {
@@ -41,7 +42,9 @@ export class PostUpdate extends Component {
                         value={this.state.body}
                         name="body"
                         onChange={(e) => {
-                            this.setState({ [e.target.name]: e.target.value });
+                            this.setState({
+                                [e.target.name]: e.target.value,
+                            });
                         }}
                     />
 
